@@ -90,6 +90,23 @@
             }
         }
 
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(-30vh) rotate(180deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         /* game container */
         #game-stage {
             position: relative;
@@ -701,6 +718,7 @@
             setTimeout(() => {
                 letterView.classList.add('active');
                 createConfetti();
+                createConfettiUp();
             }, 1500);
         }
 
@@ -719,6 +737,22 @@
                 conf.style.height = '10px';
                 conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                 conf.style.animation = `float ${Math.random() * 8 + 5}s linear forwards`;
+                document.body.appendChild(conf);
+                setTimeout(() => conf.remove(), 15000);
+            }
+        }
+
+        function createConfettiUp() {
+            const colors = ['#ff4d6d', '#ff8fa3', '#fff', '#gold'];
+            for (let i = 0; i < 50; i++) {
+                const conf = document.createElement('div');
+                conf.style.position = 'fixed';
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.bottom = -10 + 'px';
+                conf.style.width = '10px';
+                conf.style.height = '10px';
+                conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                conf.style.animation = `floatUp ${Math.random() * 8 + 5}s linear forwards`;
                 document.body.appendChild(conf);
                 setTimeout(() => conf.remove(), 15000);
             }
