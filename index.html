@@ -718,9 +718,9 @@
                 conf.style.width = '10px';
                 conf.style.height = '10px';
                 conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                conf.style.animation = `float ${Math.random() * 3 + 2}s linear forwards`;
+                conf.style.animation = `float ${Math.random() * 5 + 4}s linear forwards`;
                 document.body.appendChild(conf);
-                setTimeout(() => conf.remove(), 5000);
+                setTimeout(() => conf.remove(), 10000);
             }
         }
     </script>
