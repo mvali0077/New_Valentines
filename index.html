@@ -12,7 +12,7 @@
         :root {
             --primary-color: #ff4d6d;
             --secondary-color: #ff8fa3;
-            --glass-bg: rgba(255, 255, 255, 0.582);
+            --glass-bg: rgba(253, 238, 238, 0.76);
             --glass-border: rgba(255, 255, 255, 0.719);
             --text-color: #590d22;
         }
@@ -754,7 +754,7 @@
                 conf.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
                 conf.style.animation = `floatUp ${Math.random() * 8 + 5}s linear forwards`;
                 document.body.appendChild(conf);
-                setTimeout(() => conf.remove(), 15000);
+                setTimeout(() => conf.remove(), 10000);
             }
         }
     </script>
