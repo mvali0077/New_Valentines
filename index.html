@@ -642,6 +642,11 @@
                 heart.style.position = 'fixed';
                 heart.style.left = (rect.left + rect.width / 2) + 'px';
                 heart.style.top = (rect.top + rect.height / 2) + 'px';
+                heart.style.zIndex = '9999';
+                heart.style.pointerEvents = 'none';
+                // ensure visible initial transform while animation runs
+                heart.style.transform = 'translate(-50%, -50%) scale(1)';
+                console.log('Found heart, placing at', heart.style.left, heart.style.top);
                 document.body.appendChild(heart);
 
                 // When the heart animation ends, remove it and mark the spot revealed
