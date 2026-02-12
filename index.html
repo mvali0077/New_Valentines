@@ -457,11 +457,11 @@
         .photo-carousel {
             margin-top: 2rem;
             position: relative;
-            max-width: 600px;
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
+            width: 100%;
             overflow: visible;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .carousel-container {
@@ -471,6 +471,7 @@
             backdrop-filter: blur(5px);
             border: 2px solid rgba(255, 255, 255, 0.3);
             width: 100%;
+            max-width: 600px;
             height: 400px;
             display: flex;
         }
