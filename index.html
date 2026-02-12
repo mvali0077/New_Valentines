@@ -792,6 +792,160 @@
             display: flex;
             /* ensure flex for centering */
         }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            /* Main layout adjustments */
+            body {
+                overflow-y: auto;
+            }
+
+            /* Game stage adjustments */
+            .instructions h1 {
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .instructions p {
+                font-size: 0.9rem;
+            }
+
+            .score-board {
+                font-size: 0.9rem;
+            }
+
+            /* Hiding spots for mobile */
+            .hiding-spots-container {
+                gap: 1rem;
+                padding: 10px;
+            }
+
+            .hiding-spot {
+                font-size: 2.5rem;
+            }
+
+            /* Envelope stage */
+            .envelope-container {
+                width: 250px;
+                height: 200px;
+            }
+
+            .open-btn {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            /* Letter view */
+            .love-letter {
+                width: 95%;
+                max-width: 100%;
+                padding: 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .love-letter h2 {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            .love-letter p {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .close-btn {
+                font-size: 1.2rem;
+            }
+
+            /* Valentines screen */
+            .valentines-content h1 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .heart-decoration {
+                font-size: 3rem;
+            }
+
+            /* Carousel adjustments */
+            .photo-carousel {
+                width: 95%;
+            }
+
+            .carousel-container {
+                max-width: 100%;
+                height: 300px;
+            }
+
+            .carousel-slide {
+                height: 300px;
+            }
+
+            .carousel-btn {
+                font-size: 1.2rem;
+                padding: 8px 12px;
+            }
+
+            .carousel-btn.prev,
+            .carousel-btn.next {
+                left: 5px;
+                right: 5px;
+            }
+
+            .dot {
+                width: 10px;
+                height: 10px;
+                gap: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Extra small screens */
+            .instructions h1 {
+                font-size: 1.4rem;
+            }
+
+            .instructions p {
+                font-size: 0.8rem;
+            }
+
+            .hiding-spot {
+                font-size: 2rem;
+            }
+
+            .hiding-spots-container {
+                gap: 0.8rem;
+            }
+
+            .valentines-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .heart-decoration {
+                font-size: 2rem;
+            }
+
+            .carousel-container {
+                height: 250px;
+            }
+
+            .carousel-slide {
+                height: 250px;
+            }
+
+            .carousel-btn {
+                font-size: 1rem;
+                padding: 6px 10px;
+            }
+
+            .love-letter {
+                padding: 1rem;
+            }
+
+            .love-letter p {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 
     <script>
