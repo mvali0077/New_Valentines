@@ -449,6 +449,86 @@
             }
         }
 
+        /* Photo Carousel Styles */
+        .photo-carousel {
+            margin-top: 2rem;
+            position: relative;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .carousel-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 77, 109, 0.8);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 77, 109, 1);
+        }
+
+        .carousel-btn.prev {
+            left: -60px;
+        }
+
+        .carousel-btn.next {
+            right: -60px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: #fff;
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
         .close-btn {
             position: absolute;
             top: 10px;
@@ -546,6 +626,28 @@
         <div class="valentines-content">
             <h1>Happy Valentines</h1>
             <div class="heart-decoration">❤️</div>
+            
+            <!-- Photo Carousel -->
+            <div class="photo-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <img src="images/photo1.jpeg" alt="Memory 1" class="carousel-slide">
+                        <img src="images/photo2.PNG" alt="Memory 2" class="carousel-slide">
+                        <img src="images/photo3.jpeg" alt="Memory 3" class="carousel-slide">
+                        <img src="images/photo4.jpeg" alt="Memory 4" class="carousel-slide">
+                        <img src="images/photo5.jpeg" alt="Memory 5" class="carousel-slide">
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
+                <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -780,6 +882,36 @@
                 createConfetti();
                 createConfettiUp();
             }, 1500);
+        }
+
+        let currentSlideIndex = 0;
+
+        function moveCarousel(n) {
+            showSlide(currentSlideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlide(currentSlideIndex = n - 1);
+        }
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.dot');
+            
+            if (n >= slides.length) {
+                currentSlideIndex = 0;
+            }
+            if (n < 0) {
+                currentSlideIndex = slides.length - 1;
+            }
+            
+            const track = document.querySelector('.carousel-track');
+            track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (dots[currentSlideIndex]) {
+                dots[currentSlideIndex].classList.add('active');
+            }
         }
 
         function closeLetter() {
