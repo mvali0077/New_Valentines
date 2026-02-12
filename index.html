@@ -398,6 +398,56 @@
             line-height: 1.6;
         }
 
+        /* Happy Valentines Screen */
+        #valentines-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #870206 0%, #b93b3f 99%, #dc777a 100%);
+            z-index: 50;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #valentines-screen.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .valentines-content {
+            text-align: center;
+        }
+
+        .valentines-content h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .heart-decoration {
+            font-size: 5rem;
+            animation: pulse-hearts 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-hearts {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
         .close-btn {
             position: absolute;
             top: 10px;
@@ -486,6 +536,14 @@
             <p>TE AMOOOOO.</p>
             <p>Happy Valentine's Day! ❤️</p>
             <p style="text-align: right;">- Yours forever</p>
+        </div>
+    </div>
+
+    <!-- Happy Valentines Screen -->
+    <div id="valentines-screen">
+        <div class="valentines-content">
+            <h1>Happy Valentines</h1>
+            <div class="heart-decoration">❤️</div>
         </div>
     </div>
 
@@ -724,6 +782,9 @@
 
         function closeLetter() {
             document.getElementById('letter-view').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('valentines-screen').classList.add('active');
+            }, 300);
         }
 
         function createConfetti() {
