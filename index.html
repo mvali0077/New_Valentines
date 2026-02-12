@@ -147,7 +147,7 @@
             color: #d62828;
             /* slightly darker to blend but identifiable if looked for */
             cursor: pointer;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             opacity: 0.8;
             filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.3));
             animation: pulse-soft 3s infinite;
@@ -667,7 +667,7 @@
                 sparkle.style.left = (x + (Math.random() * 40 - 20)) + 'px';
                 sparkle.style.top = (y + (Math.random() * 40 - 20)) + 'px';
                 document.body.appendChild(sparkle);
-                setTimeout(() => sparkle.remove(), 900);
+                setTimeout(() => sparkle.remove(), 200);
             }
         }
 
